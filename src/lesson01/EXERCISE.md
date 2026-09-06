@@ -17,19 +17,28 @@
 
 ## 构建与运行
 
-在工作区根目录 `/home/proqing/ROS2_Study` 执行：
+在当前工作区根目录执行：
 
 ```bash
-source /opt/ros/jazzy/setup.bash
+source /path/to/ros/setup.bash
 colcon build --symlink-install --packages-select lesson01
 source install/setup.bash
 ros2 run lesson01 lesson01_logger
 ```
 
-如果构建报错 `ModuleNotFoundError: No module named 'catkin_pkg'`，说明当前 shell 使用了 Anaconda Python。此时将第二行替换为下面这条命令即可，不需要修改系统配置：
+将 `/path/to/ros/setup.bash` 替换为当前主机实际的 ROS 2 setup 文件。可先运行 `printenv ROS_DISTRO`、`command -v ros2` 和 `command -v colcon` 检查环境。
+
+如果构建报错 `ModuleNotFoundError: No module named 'catkin_pkg'`，先检查当前 Python：
 
 ```bash
-colcon build --symlink-install --packages-select lesson01 --cmake-clean-cache --cmake-args -DPython3_EXECUTABLE=/usr/bin/python3
+command -v python3
+python3 -c 'import catkin_pkg; print(catkin_pkg.__file__)'
+```
+
+确认系统 Python 可用后，可在本次命令中临时指定它；不需要修改系统配置：
+
+```bash
+colcon build --symlink-install --packages-select lesson01 --cmake-clean-cache --cmake-args -DPython3_EXECUTABLE="$(command -v python3)"
 ```
 
 ## 运行示例

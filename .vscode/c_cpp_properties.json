@@ -3,15 +3,12 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**",
-                "/opt/ros/jazzy/include/**"  // 使用 /** 递归包含所有子目录
+                "${workspaceFolder}/**"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
             "cStandard": "c17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "linux-gcc-x64",
-            // 强烈推荐增加这一项，指向编译数据库，实现精准跳转
             "compileCommands": "${workspaceFolder}/build/compile_commands.json"
         }
     ],

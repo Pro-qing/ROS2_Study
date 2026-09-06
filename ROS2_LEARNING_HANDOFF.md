@@ -1,13 +1,23 @@
 # ROS 2 学习交接文档
 
-## 学习环境
+## 学习目标与环境
 
-- 工作区：`/home/proqing/ROS2_Study`
-- 目标发行版：ROS 2 Jazzy
+- 工作区：当前 Git 仓库根目录
+- 目标发行版：ROS 2 Jazzy；其它发行版需要先确认兼容性
 - 默认语言：C++（`rclcpp`）
 - 默认构建系统：`ament_cmake` + `colcon`
-- 环境检查：已通过（`ROS_DISTRO=jazzy`，`ros2` 位于 `/opt/ros/jazzy/bin/ros2`，`colcon` 位于 `/usr/bin/colcon`，Jazzy setup 文件存在）
-- 构建环境：`python3` 和 `catkin_pkg` 均来自 `/usr/bin/python3`
+- C++ 基线：C++17，逐步引入 RAII、智能指针、lambda、`std::chrono`、容器和测试
+- ROS 2 API 基线：优先使用 Jazzy 的 `rclcpp`、标准消息和显式 QoS
+
+## 最近一次环境检查
+
+环境信息属于当前主机，不作为其它主机的固定前提。最近一次检查日期：2026-09-06。
+
+- `ROS_DISTRO`：`jazzy`
+- `ros2`：已找到
+- `colcon`：已找到
+- ROS setup：已找到
+- Python 与 `catkin_pkg`：已通过检查
 
 ## 学习偏好
 
@@ -31,14 +41,15 @@
 
 ## 建议学习路线
 
-1. 工作区、ROS 2 package 和日志节点
-2. `rclcpp` 节点生命周期与定时器回调
-3. publisher 发布话题
-4. subscriber 订阅话题
-5. 参数（parameters）
+1. 工作区、ROS 2 package、节点和日志
+2. C++ lambda、`std::chrono` 与 `rclcpp` 定时器
+3. publisher、消息类型与 QoS
+4. subscriber、回调参数与对象生命周期
+5. 参数和运行时配置
 6. service 客户端与服务端
 7. action 客户端与服务端
-8. launch 文件
-9. 综合小项目
+8. launch、参数文件和安装规则
+9. executor、callback group 与并发基础
+10. 测试和综合小项目
 
 根据每次代码审查结果调整顺序和难度。

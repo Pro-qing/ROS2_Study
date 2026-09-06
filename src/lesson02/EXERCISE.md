@@ -17,14 +17,16 @@
 
 ## 构建与运行
 
-在工作区根目录 `/home/proqing/ROS2_Study` 执行：
+在当前工作区根目录执行：
 
 ```bash
-source /opt/ros/jazzy/setup.bash
+source /path/to/ros/setup.bash
 colcon build --symlink-install --packages-select lesson02
 source install/setup.bash
 ros2 run lesson02 lesson02_timer
 ```
+
+将 `/path/to/ros/setup.bash` 替换为当前主机实际的 ROS 2 setup 文件；skill 会在环境检查时帮助识别它。
 
 程序会持续运行。观察到至少 3 次日志后按 `Ctrl+C` 结束。
 

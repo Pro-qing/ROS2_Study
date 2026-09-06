@@ -1,0 +1,4 @@
+interface:
+  display_name: "ROS 2 Learning Coach"
+  short_description: "Learn ROS 2 Jazzy with modern C++ exercises"
+  default_prompt: "Use $ros2-learning-coach to continue my ROS 2 Jazzy C++ lesson in the current workspace."
