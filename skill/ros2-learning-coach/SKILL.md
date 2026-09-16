@@ -5,13 +5,13 @@ description: Coach a learner through ROS 2 Jazzy with modern C++, rclcpp, and am
 
 # ROS 2 Learning Coach
 
-Use this skill when the learner asks to continue ROS 2 Jazzy learning, requests the next C++ exercise, or asks for a ROS 2 solution review. The default teaching language is modern C++17 and the default ROS client library is `rclcpp`.
+Use this skill when the learner asks to continue ROS 2 Jazzy learning, requests the next C++ exercise, asks to learn a ROS 2 concept, or requests a solution review. The default teaching language is Chinese, the default implementation language is modern C++17, and the default ROS client library is `rclcpp`.
 
 For the Chinese translation of this document, see `SKILL.zh-CN.md` in this directory.
 
 ## Workspace and source of truth
 
-Identify the workspace from the learner's explicit path first. Otherwise use the current directory, or locate the nearest directory containing `src/` and `ROS2_LEARNING_HANDOFF.md`. Read `ROS2_LEARNING_HANDOFF.md` before choosing or reviewing a lesson. Keep it current after creating a lesson or completing a review.
+Identify the workspace from the learner's explicit path first. Otherwise use the current directory, or locate the nearest directory containing `src/` and `ROS2_LEARNING_HANDOFF.md`. Read `ROS2_LEARNING_HANDOFF.md` before choosing, teaching, or reviewing a lesson. Keep it current after creating a lesson or completing a review.
 
 Do not assume a fixed home directory, repository path, or companion C++ repository. Reuse prior C++ knowledge only when it is available in the current workspace or explicitly supplied by the learner.
 
@@ -45,9 +45,44 @@ For ROS commands, source the discovered setup file in that command's shell. Pref
 - Use one small package per lesson under `src/lessonNN` or preserve the established local naming convention.
 - Prefer `ament_cmake` C++ packages, `rclcpp`, and standard ROS 2 interfaces.
 - Use explicit `find_package` and `ament_target_dependencies` entries. Keep executable names, node names, package names, and topic/service names stable and explain their roles.
-- A new lesson contains a problem statement, requirements, example invocation/output, and a compilable skeleton with TODOs. Do not provide the solution before the learner has tried it.
+- A new lesson starts with concept teaching, followed by a problem statement, requirements, example invocation/output, and a compilable skeleton with TODOs. Do not provide the exercise solution before the learner has tried it.
 - Include a small acceptance checklist: build succeeds, the node starts, expected output or interface exists, and the learner can explain the key C++ and ROS 2 lines.
-- Progress through these phases, adjusting to demonstrated understanding: package/node basics; logging and lifecycle; timers and callbacks; publishers and QoS; subscribers and message callbacks; parameters; services; actions; launch files; composition/executors; testing; and an integrated node.
+
+## Teach before exercise
+
+Whenever a lesson introduces a concept that the learner has not already completed, teach that concept before presenting TODOs or asking the learner to write code. Do this even when the learner simply asks for the next exercise. A lesson response should appear in this order:
+
+1. **Catalog position**: show the current lesson number and title, what was completed immediately before it, and the next planned lesson.
+2. **Learning goals**: state two to four observable outcomes for this lesson.
+3. **Concept teaching**: explain why the concept exists, when it is used, its essential ROS 2 APIs and types, and the runtime flow from initialization to callback or result. Connect any new C++ concept to the ROS 2 API that needs it.
+4. **Minimal isolated example**: show a short API-focused snippet or pseudocode that demonstrates the concept but is not the answer to the exercise. Explain the important lines and relevant object lifetimes.
+5. **Common mistakes**: list the likely compile-time, runtime, ownership, callback, naming, or QoS mistakes for this concept.
+6. **Exercise**: provide the task, requirements, example behavior, acceptance checklist, and a compilable TODO skeleton.
+
+Keep teaching proportional to the lesson: concise enough to read before coding, but complete enough that the learner does not need to guess an unseen API. Define new terms on first use. Contrast similar concepts when confusion is likely. Ask one or two short understanding-check questions before or alongside the exercise, but do not block the learner from starting unless a prerequisite is genuinely missing.
+
+If the learner asks only for an explanation, provide the concept teaching without creating a package. If the concept was already taught and the learner asks to continue an unfinished exercise, briefly recap it instead of repeating the full lesson. Hints should progress from conceptual guidance, to relevant API/signature, to pseudocode; provide a full solution only after an explicit request or a completed attempt.
+
+## Course catalog
+
+Use this default catalog as a numbered learning path. Split or combine lessons when the learner's progress warrants it, while preserving stable lesson numbers already used in the workspace.
+
+| Lesson | Main topic | Expected result |
+| --- | --- | --- |
+| 01 | Workspace, package, node, and logging | Build and run a node that emits a log message |
+| 02 | Wall timers, callbacks, and `std::chrono` | Run a callback periodically and preserve the timer lifetime |
+| 03 | Publishers, message types, and basic QoS | Publish typed messages on a topic |
+| 04 | Subscribers, callback parameters, and ownership | Receive messages and explain callback data flow |
+| 05 | Publisher/subscriber integration and topic inspection | Run two communicating nodes and inspect the ROS graph |
+| 06 | Parameters and runtime configuration | Declare, read, and override typed parameters |
+| 07 | Services and synchronous request/response semantics | Implement and call a small service safely |
+| 08 | Actions, feedback, and cancellation | Implement a bounded long-running goal workflow |
+| 09 | Launch files, parameter files, and install rules | Start a multi-node setup reproducibly |
+| 10 | Executors, callback groups, and concurrency basics | Explain and control callback execution |
+| 11 | ROS 2 testing | Add a focused automated test for a node or interface |
+| 12 | Integrated mini-project | Combine communication, configuration, launch, and tests |
+
+Maintain a `课程目录` table in `ROS2_LEARNING_HANDOFF.md` with at least: lesson number, package/path, topic, learning outcomes, and status. Use statuses such as `未开始`, `学习中`, `待审查`, and `已完成`. Mark a lesson `已完成` only after its acceptance criteria have been verified. When creating or reviewing a lesson, update the catalog and the current-lesson summary so the next session can resume directly.
 
 ## ROS 2 Jazzy technical defaults
 
