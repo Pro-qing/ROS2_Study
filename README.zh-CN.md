@@ -47,10 +47,10 @@ test -f "${CODEX_HOME:-$HOME/.codex}/skills/ros2-learning-coach/SKILL.md"
 
 学习 skill 会依次：
 
-1. 定位当前工作区并读取 `ROS2_LEARNING_HANDOFF.md`。
+1. 定位当前工作区并读取 `ROS2_LEARNING_CATALOG.md` 与 `ROS2_LEARNING_HANDOFF.md`。
 2. 检查当前主机的 ROS 2、`colcon`、Python 和 `catkin_pkg` 环境。
-3. 根据当前课程状态安排一个小练习。
-4. 先提供题目、要求和代码骨架，不提前提供完整答案。
+3. 根据已经学过的内容、当前课程状态和实际暴露的薄弱点决定指导方向，不预先规划未来课程。
+4. 学习新知识点时先讲解用途、API、运行流程、最小示例和常见错误，再提供题目与代码骨架。
 5. 等待学习者完成后，构建相关 package、运行节点并检查 ROS 2 接口。
 6. 用中文指出构建错误、运行错误、C++ 问题和 ROS 2 语义问题。
 
@@ -90,7 +90,8 @@ colcon build --symlink-install --packages-select lesson02 \
 
 ## 学习文件说明
 
-- `ROS2_LEARNING_HANDOFF.md`：跨主机共享的学习进度、偏好和路线。
+- `ROS2_LEARNING_CATALOG.md`：只记录已经实际学习过的知识点和验证状态，不包含未来规划。
+- `ROS2_LEARNING_HANDOFF.md`：记录当前进度、观察到的表现、薄弱点和动态的下一步指导依据。
 - `src/lessonNN/EXERCISE.md`：课程目标、要求、运行方法和验收标准。
 - `src/lessonNN/src/`：课程 C++ 源码。
 - `skill/ros2-learning-coach/SKILL.md`：Codex 实际加载的英文 skill 源文件。
@@ -103,4 +104,4 @@ colcon build --symlink-install --packages-select lesson02 \
 
 课程默认使用清晰、可维护的现代 C++，逐步练习函数与作用域、`const` 和引用、类与构造函数、RAII、智能指针、lambda、`std::chrono`、容器、错误处理和测试。
 
-ROS 2 方面会逐步学习节点与日志、定时器、publisher、subscriber、QoS、参数、service、action、launch、executor、callback group 和综合项目。每次只引入一个主要概念，并要求同时理解对应的 C++ 所有权、回调和生命周期。
+ROS 2 学习每次只引入一个主要概念，并要求同时理解对应的 C++ 所有权、回调和生命周期。后续主题根据代码审查、运行结果和理解情况动态选择，不使用预设的固定课程路线。
