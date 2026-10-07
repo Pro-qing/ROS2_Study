@@ -17,6 +17,8 @@ int main(int argc, char * argv[])
     1s,
     [&]() {
       // TODO: 输出当前 count，然后将 count 加一。
+      RCLCPP_INFO(node->get_logger(), "Current count: %zu", count);
+      count++;
     });
 
   (void)timer;
