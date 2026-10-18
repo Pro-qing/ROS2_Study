@@ -55,10 +55,10 @@ test -f "${CODEX_HOME:-$HOME/.codex}/skills/ros2-learning-coach/SKILL.md"
 6. 等待学习者完成后，构建相关 package，分别检查算法边界情况、节点行为及需要的 launch 行为。
 7. 用中文指出构建、算法、ROS 2 集成和 launch 中实际观察到的问题。
 
-当前课程位于 `src/lesson02`。完成代码后，可以请求：
+当前课程位于 `src/lesson03`。完成代码后，可以请求：
 
 ```text
-检查第二课
+检查第三课
 ```
 
 ## 手动构建和运行
@@ -67,9 +67,9 @@ test -f "${CODEX_HOME:-$HOME/.codex}/skills/ros2-learning-coach/SKILL.md"
 
 ```bash
 source /path/to/ros/setup.bash
-colcon build --symlink-install --packages-select lesson02
+colcon build --symlink-install --packages-select lesson03
 source install/setup.bash
-ros2 run lesson02 lesson02_timer
+ros2 run lesson03 lesson03_publisher
 ```
 
 将 `/path/to/ros/setup.bash` 替换成当前主机实际路径。课程文档不会假定固定的用户目录或 ROS 安装目录。
@@ -84,7 +84,7 @@ python3 -c 'import catkin_pkg; print(catkin_pkg.__file__)'
 确认可用的 Python 后，可以只在本次构建中指定它，不需要修改系统配置：
 
 ```bash
-colcon build --symlink-install --packages-select lesson02 \
+colcon build --symlink-install --packages-select lesson03 \
   --cmake-clean-cache \
   --cmake-args -DPython3_EXECUTABLE="$(command -v python3)"
 ```

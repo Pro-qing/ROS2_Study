@@ -11,7 +11,7 @@
 
 ## 最近一次环境检查
 
-环境信息属于当前主机，不作为其它主机的固定前提。最近一次检查日期：2026-09-06。
+环境信息属于当前主机，不作为其它主机的固定前提。最近一次检查日期：2026-10-09。
 
 - `ROS_DISTRO`：`jazzy`
 - `ros2`：已找到
@@ -36,16 +36,19 @@
 
 ## 当前练习
 
-- 文件：`src/lesson02/`
-- 主题：使用 `rclcpp` wall timer 周期性执行回调
-- 当前状态：题目说明和可编译代码骨架已创建，等待学习者完成 TODO 后审查
+- 文件：`src/lesson03/`
+- 主题：使用 `rclcpp` 发布者周期性发布 `std_msgs::msg::String`
+- 当前状态：2026-10-11 已审查，发布逻辑和接口正确；待修正消息格式、删除遗留占位语句后复查。
 
 ## 当前观察
 
-- 已验证：第一课能够正确使用 ROS 2 初始化、节点、日志和关闭流程。
-- 待验证：第二课的 timer 回调实现、计数更新、lambda 捕获、timer 生命周期和 `rclcpp::spin` 的理解。
-- 当前没有足够证据判定新的薄弱点。
+- 已验证：第一课的初始化、节点、日志和关闭流程；第二课代码正确使用 1 秒 wall timer，在回调中先输出计数再递增。`colcon build --symlink-install --packages-select lesson02` 无告警；沙箱外运行约 5 秒，观察到 0、1、2、3 顺序输出。
+- 环境备注：默认 ROS 日志目录只读，验证时用 `ROS_LOG_DIR=/tmp`；沙箱内 DDS 网络权限不足，沙箱外运行无该报错。这些不是源码问题。
+- 第三课验证：`colcon build --symlink-install --packages-select lesson03` 成功且无新告警；沙箱外限时执行 `ros2 run` 和 `ros2 topic echo`，连续收到 `Current count: 0` 至 `Current count: 6`；`ros2 topic info --verbose` 确认话题 `/lesson03_chatter`、类型 `std_msgs/msg/String`、发布节点 `lesson03_publisher`、RELIABLE / VOLATILE。
+- 第三课要求偏差：源文件第 25 行消息前缀应为 `count = `；第 29～30 行 `(void)` 占位语句及第 23 行已完成的 TODO 仍保留。审查未改学习者源码。
+- 学习者在 EXERCISE.md 中已正确解释 volatile 不补发历史消息，以及 `main` 中 `count` 在阻塞的 `spin` 期间保持存活。关于 `shutdown` 的顺序可更精确：本代码通常由 Ctrl+C 的默认信号处理触发 shutdown，使 spin 返回；main 末尾再调用 shutdown。
+- 待确认：为何必须保留 timer 对象；尚未观察到需要额外补强的 ROS 2 代码薄弱点。
 
 ## 下一步指导方向
 
-先完成并审查第二课。根据构建结果、运行行为和学习者对关键代码的解释，决定下一步是复习回调与生命周期，还是引入新的 ROS 2 概念；当前不预设后续课程主题。
+先由学习者修正第三课消息格式和遗留占位语句，再复查验收。通过后可学习话题订阅回调，直接复用已验证的 String 发布者作为输入；新课尚未创建或讲授，不加入目录。
