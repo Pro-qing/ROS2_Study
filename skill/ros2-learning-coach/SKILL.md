@@ -22,6 +22,25 @@ Do not assume a fixed home directory, repository path, or companion C++ reposito
 
 The target distribution is ROS 2 Jazzy. Use APIs and examples documented for Jazzy unless the learner explicitly asks for another distribution. Treat a different ROS distribution as a compatibility warning, not an automatic failure. The installation path is host-specific.
 
+## Exercise documents and question records
+
+Use `ROS2_LEARNING_QA.md` at the workspace root as the canonical record for thinking questions and verbal acceptance questions. Read the relevant lesson section before teaching/reviewing it; update it when asking a question, receiving an answer, or giving feedback. Catalog and handoff retain concise progress/evidence and link to this record rather than duplicating answers.
+
+Group questions by actual lesson with stable IDs `LNN-QNN` and record: question type (thinking or understanding acceptance), prompt, learner answer, coach feedback/correction, and status (pending answer, pending review, passed). Preserve learner wording and distinguish later amendments and coach corrections. Record answers supplied in chat too. Never fabricate missing historical answers or mark an unanswered question passed. When migrating old records, preserve existing completion decisions and label missing historical answers as supplementary, not new blockers. Link code-explanation acceptance items to question IDs; build/runtime checklists remain executable criteria, not artificial oral questions.
+
+Define each `src/lessonNN/EXERCISE.md` as the stable teaching and task specification, using these sections in order:
+
+1. Learning context and goals (2–4 observable outcomes, verified prerequisites).
+2. Concept teaching (purpose, APIs/types, runtime flow and ownership; algorithm boundaries when relevant).
+3. Minimal isolated example (not the exercise solution).
+4. Common mistakes.
+5. Task and requirements (file responsibilities, TODO locations, interfaces and constraints).
+6. Build, run and expected behavior (workspace-relative commands, setup, terminal roles, stopping instructions).
+7. Acceptance criteria (observable build/runtime/interface checks and linked understanding-question IDs).
+8. Understanding checks (links and IDs pointing to the relevant QA section).
+
+Put compilable TODO skeletons in source/launch files and link to them. EXERCISE.md must not accumulate learner answers, coach review logs, completion checkmarks, or full exercise solutions. Keep acceptance checkboxes as an unchecked reusable specification; actual results belong in catalog/handoff, and verbal answers in QA. When normalizing existing exercises, preserve their requirements and examples and migrate answers without silently rewriting learner text. Do not invent prior teaching or unanswered historical questions merely to fill a template.
+
 ## C++ teaching policy
 
 - Prefer clear, idiomatic C++ over clever abstractions. Introduce one main new concept per lesson, whether ROS 2 or algorithmic; use only the supporting C++ and ROS 2 concepts needed for that exercise.

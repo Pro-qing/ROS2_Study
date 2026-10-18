@@ -20,15 +20,13 @@ int main(int argc, char * argv[])
   auto timer = node->create_wall_timer(
     1s,
     [publisher, &count]() {
-      // TODO: 构造 String 消息，写入当前 count，发布后递增 count。
       auto message = std_msgs::msg::String();
-      message.data = "Current count: " + std::to_string(count);
+      message.data = "count = " + std::to_string(count);
       publisher->publish(message);
       count++;
-
-      (void)publisher;
-      (void)count;
     });
+  
+  RCLCPP_INFO(node->get_logger(), "publisher is ready to send messages.");
 
   (void)timer;
   rclcpp::spin(node);
