@@ -69,3 +69,7 @@ ros2 run lesson02 lesson02_timer
 ## 理解检查问题
 
 历史问答未单独留存，见 [问答记录](../../ROS2_LEARNING_QA.md)。不补造历史回答。
+
+## C++ 语法强化
+
+本课对应的独立语法练习见 [lambda、引用捕获与生命周期](cpp_practice/EXERCISE.md)。它单独编译验收，不替代本课 ROS 定时器练习。

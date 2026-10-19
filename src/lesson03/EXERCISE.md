@@ -72,3 +72,7 @@ ros2 topic echo /lesson03_chatter
 ## 理解检查问题
 
 题目、回答与反馈统一记录在 [学习问答](../../ROS2_LEARNING_QA.md#第-03-课发布话题消息)：L03-Q01～L03-Q04。理解验收关联以上题号，不在本文件填写答案。
+
+## C++ 语法强化
+
+本课对应的独立语法练习见 [字符串与计数器](cpp_practice/EXERCISE.md)。它单独编译验收，不替代本课 ROS publisher 练习。

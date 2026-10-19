@@ -102,3 +102,7 @@ ros2 topic info /lesson03_chatter --verbose
 ## 理解检查问题
 
 题目、回答与反馈统一记录在 [学习问答](../../ROS2_LEARNING_QA.md#第-04-课话题订阅回调)：L04-Q01～L04-Q05。理解验收关联以上题号，不在本文件填写答案。
+
+## C++ 语法强化
+
+本课对应的独立语法练习见 [只读引用与值捕获](cpp_practice/EXERCISE.md)。它单独编译验收，不替代本课 ROS subscription 练习。

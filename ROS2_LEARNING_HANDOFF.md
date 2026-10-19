@@ -65,3 +65,5 @@
 - 第四课解答审查（2026-10-18）：lesson04 构建无新告警，类型、话题、QoS、logger 值捕获与 ConstSharedPtr 正确；仅启动时输出一次 ready，CLI 以 1Hz 发布 count = 42 时连续正确接收四条，停止发布并排空后两秒无新日志。topic info 验证订阅端 lesson04_subscriber、String、RELIABLE / VOLATILE；深度由源码确认。进程均停止。第三课因第 29 行日志末尾漏分号构建失败，未使用旧二进制冒充联调。问答记录中对无 timer 与无 spin 的解释基本正确，应精确为执行器调度回调。第四课尚有已完成 TODO 注释和一处缩进，可收尾清理。
 
 - 第四课最终验收（2026-10-18）：学习者正确解释 ConstSharedPtr 等价于 shared_ptr<const Message>，以及 [logger] 保存副本；第三课分号已修复。两课构建无新告警，真实发布者联调收到 count = 0、1、2、3、4；topic info 确认一发布端 lesson03_publisher、一订阅端 lesson04_subscriber，类型与 RELIABLE / VOLATILE 正确。所有验证进程已停止。残留已完成 TODO 注释仅为非阻塞整理建议。
+
+- 2026-10-19：按学习者反馈，在 lesson01～lesson04 各 package 内增加独立的 `cpp_practice/` C++ 语法强化材料，并在 ROS 练习文档中链接。它们尚未由学习者完成或验收，不改变既有课程完成状态；后续可结合实际写代码的困难逐课完成，或在新课中按需增加相应练习。

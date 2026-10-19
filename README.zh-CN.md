@@ -94,6 +94,7 @@ colcon build --symlink-install --packages-select lesson03 \
 - `ROS2_LEARNING_CATALOG.md`：只记录已经实际学习过的知识点和验证状态，不包含未来规划。
 - `ROS2_LEARNING_HANDOFF.md`：记录当前进度、观察到的表现、薄弱点和动态的下一步指导依据。
 - `src/lessonNN/EXERCISE.md`：课程目标、要求、运行方法和验收标准。
+- `src/lessonNN/cpp_practice/`：对应课程的独立 C++ 语法强化材料；直接用 C++17 编译，不依赖 ROS，也不替代主课程验收。
 - `src/lessonNN/src/`：课程 C++ 源码；有独立算法或多个节点时，按职责拆分文件。
 - `src/lessonNN/launch/`：需要协同启动节点或统一配置时使用的 launch 文件；简单单节点课不要求创建。
 - `skill/ros2-learning-coach/SKILL.md`：Codex 实际加载的英文 skill 源文件。
