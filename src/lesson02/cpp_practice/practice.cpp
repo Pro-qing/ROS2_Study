@@ -7,6 +7,8 @@ int main()
 
   auto callback = [&count]() {
     // TODO: 输出 count 当前值，然后递增 count。
+    std::cout << count << std::endl;
+    count++;
   };
 
   callback();

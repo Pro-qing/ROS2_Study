@@ -5,7 +5,6 @@ std::string make_status(std::string goal)
 {
   // TODO: 创建并返回一条包含 goal 的介绍文字。
   std::string status = "I am currently working on: " + goal;
-  (void)goal;
   return status;
 }
 

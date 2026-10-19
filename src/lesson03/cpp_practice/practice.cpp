@@ -5,8 +5,9 @@
 std::string make_message(std::size_t count)
 {
   // TODO: 返回格式为 "count = N" 的字符串。
-  (void)count;
-  return "TODO";
+  std::string message = "count = " + std::to_string(count);
+  // (void)count;
+  return message;
 }
 
 int main()
