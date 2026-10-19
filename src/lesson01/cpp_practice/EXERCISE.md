@@ -18,8 +18,9 @@
 编译运行：
 
 ```bash
-g++ -std=c++17 -Wall -Wextra -Wpedantic practice.cpp -o lesson01_cpp_practice
-/tmp/lesson01_cpp_practice
+g++ -std=c++17 -Wall -Wextra -Wpedantic src/lesson01/cpp_practice/practice.cpp \
+  -o src/lesson01/cpp_practice/lesson01_cpp_practice.out
+./src/lesson01/cpp_practice/lesson01_cpp_practice.out
 ```
 
 预期输出包含学习目标文字。验收时确认函数有返回值、局部变量未在作用域外使用，并能说明 main 如何使用返回结果。

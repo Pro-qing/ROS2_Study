@@ -19,8 +19,9 @@
 编译运行：
 
 ```bash
-g++ -std=c++17 -Wall -Wextra -Wpedantic src/lesson04/cpp_practice/practice.cpp -o /tmp/lesson04_cpp_practice
-/tmp/lesson04_cpp_practice
+g++ -std=c++17 -Wall -Wextra -Wpedantic src/lesson04/cpp_practice/practice.cpp \
+  -o src/lesson04/cpp_practice/lesson04_cpp_practice.out
+./src/lesson04/cpp_practice/lesson04_cpp_practice.out
 ```
 
 验收时确认输入没有被修改，捕获的是 `prefix` 的副本，并说明这个普通字符串参数与 ROS 的 `ConstSharedPtr` 并非同一种类型或所有权机制。

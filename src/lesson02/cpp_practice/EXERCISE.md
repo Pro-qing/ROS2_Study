@@ -18,8 +18,9 @@
 编译运行：
 
 ```bash
-g++ -std=c++17 -Wall -Wextra -Wpedantic src/lesson02/cpp_practice/practice.cpp -o /tmp/lesson02_cpp_practice
-/tmp/lesson02_cpp_practice
+g++ -std=c++17 -Wall -Wextra -Wpedantic src/lesson02/cpp_practice/practice.cpp \
+  -o src/lesson02/cpp_practice/lesson02_cpp_practice.out
+./src/lesson02/cpp_practice/lesson02_cpp_practice.out
 ```
 
 验收时确认计数顺序正确，并能解释引用捕获不拥有变量，以及为什么本例调用回调时引用仍有效。对应 ROS 课程的 timer 由 spin 驱动；不要把此练习误认为真实定时器。

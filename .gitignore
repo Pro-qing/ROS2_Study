@@ -4,3 +4,4 @@ log/
 .pytest_cache/
 .vscode/
 *.pyc
+*.out

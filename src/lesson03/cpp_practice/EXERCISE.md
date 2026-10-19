@@ -18,8 +18,9 @@
 编译运行：
 
 ```bash
-g++ -std=c++17 -Wall -Wextra -Wpedantic src/lesson03/cpp_practice/practice.cpp -o /tmp/lesson03_cpp_practice
-/tmp/lesson03_cpp_practice
+g++ -std=c++17 -Wall -Wextra -Wpedantic src/lesson03/cpp_practice/practice.cpp \
+  -o src/lesson03/cpp_practice/lesson03_cpp_practice.out
+./src/lesson03/cpp_practice/lesson03_cpp_practice.out
 ```
 
 验收时检查消息文本、计数更新顺序及函数参数的用途。对应 ROS 课程时，返回文本会放入消息的 `data` 字段，再交给 publisher。
