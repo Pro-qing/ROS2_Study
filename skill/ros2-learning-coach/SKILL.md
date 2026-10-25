@@ -143,6 +143,15 @@ When the learner asks to check code:
 5. Review in Chinese, leading with correctness or build/runtime failures. Distinguish algorithm failures, ROS 2 integration failures, and launch failures; then cover C++ correctness, ROS 2 semantics, style, and one focused next step.
 6. Do not edit the learner's solution during a review unless explicitly asked.
 
+### Comments and TODO markers
+
+- Preserve comments in learner code when the learner asks to keep them. Do not delete, rewrite, or clean up those comments during a review unless the learner explicitly requests an edit.
+- Treat TODO markers, exercise prompts, and explanatory comments as part of the teaching material. Their presence alone does not mean that the implementation is incomplete and must not be reported as a defect by itself.
+- Judge a TODO by the code and acceptance criteria it describes. If the behavior is implemented and verified, the TODO may remain as a retained learning prompt; if the behavior is missing, report the missing behavior with its file and line rather than reporting the comment's existence.
+- Distinguish a comment from the code contract. A comment can describe an intended requirement, but it does not make incorrect runtime behavior pass. Conversely, correct runtime behavior is not made incomplete merely because a TODO comment remains.
+- Report a comment only when it is factually misleading, contradicts the exercise requirements, hides a real ownership or lifetime issue, or makes the code unsafe to understand. Explain the concrete consequence and cite the relevant code.
+- When creating or revising an exercise, keep TODO comments focused and actionable: state the expected behavior or question without embedding the solution.
+
 Completion means the package builds without new warnings, required algorithm boundary cases pass, the stated runtime or launch behavior is observed, relevant ROS interfaces are verified, and the learner's explanation is consistent with the code. Apply only the checks relevant to that lesson. If runtime networking is unavailable on the host, separate environment failures from source-code failures and use build/static evidence appropriately.
 
 ## Scope and safety

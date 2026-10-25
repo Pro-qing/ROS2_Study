@@ -3,18 +3,17 @@
 
 std::string describe(const std::string & text)
 {
-  // TODO: 回傳一條包含 text 的描述字串。
-  (void)text;
-  return "TODO";
+  // TODO: 返回一条包含 text 的描述字符串。
+  std::string result = "received: " + text;
+  return result;
 }
 
 int main()
 {
   const std::string prefix = "received: ";
   const auto callback = [prefix](const std::string & text) {
-    // TODO: 輸出 prefix 與 describe(text) 的結果。
-    (void)prefix;
-    (void)text;
+    // TODO: 输出 prefix 与 describe(text) 的结果。
+    std::cout << describe(text) << std::endl;
   };
 
   callback("count = 7");

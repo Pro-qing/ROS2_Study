@@ -10,3 +10,4 @@
 | 02 | `src/lesson02` | wall timer；`std::chrono` 时间字面量；lambda 回调；`rclcpp::spin`；timer 对象生命周期 | 代码审查通过；Jazzy 环境构建无告警，运行时约每秒依次输出 0、1、2、3 | 已完成 |
 | 03 | `src/lesson03` | `std_msgs::msg::String`；话题发布者；显式 QoS；定时发布的数据流 | 2026-10-18 复查构建无新告警；echo 收到 count = 0 及连续 2、3、4；接口和 RELIABLE / VOLATILE 正确，占位语句已清理；count 生命周期、volatile、timer 存活与 (void)timer 解释通过 | 已完成 |
 | 04 | `src/lesson04` | 话题订阅；create_subscription；ConstSharedPtr 回调；logger 值捕获；spin 调度及通信匹配 | 2026-10-18 两课构建无新告警，真实发布者联调收到 count = 0～4；接口及 QoS 正确；停止发布检查通过；spin、ConstSharedPtr 和 logger 值捕获解释正确 | 已完成 |
+| 04 C++ | `src/lesson04/cpp_practice` | `const std::string &` 只读引用；lambda 值捕获；回调参数与捕获状态 | 2026-10-25 构建无告警，运行输出符合示例；`describe` 仍保留 TODO，函数契约与练习文档存在前缀重复歧义 | 待审查 |

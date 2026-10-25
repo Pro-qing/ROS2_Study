@@ -69,3 +69,7 @@
 - 2026-10-19：按学习者反馈，在 lesson01～lesson04 各 package 内增加独立的 `cpp_practice/` C++ 语法强化材料，并在 ROS 练习文档中链接。它们尚未由学习者完成或验收，不改变既有课程完成状态；后续可结合实际写代码的困难逐课完成，或在新课中按需增加相应练习。
 
 - 2026-10-19：统一四课语法练习的命令为从仓库根目录编译，生成的可执行文件放在对应 `cpp_practice/` 目录并以 `.out` 结尾；根目录 `.gitignore` 已忽略该后缀。按文档构建运行四个程序均无编译告警；lesson01 输出包含学习目标，lesson02～lesson04 当前输出仍为 TODO 占位内容，不据此记为完成。
+
+- 2026-10-25：复查 `src/lesson04/cpp_practice/practice.cpp`。使用 `g++ -std=c++17 -Wall -Wextra -Wpedantic` 构建无告警，运行输出为 `received: count = 7`，因此示例输出通过。源码第 6 行仍是 TODO，`describe` 当前只返回原文本；按 `EXERCISE.md` 第 17 行对“describe 添加前缀”的字面要求尚未完成。文档同时要求 lambda 输出 `prefix + describe(text)`，若两处都添加前缀会重复，需先统一练习契约。未修改学习者代码。
+
+- 2026-10-25 再次复查：`describe` 已改为在第 7 行添加 `received: `，但 lambda 第 16 行仍拼接 `prefix`，构建无告警而运行输出为 `received: received: count = 7`，未通过示例验收。需要只保留一个位置负责添加前缀；同时第 6、15 行的 TODO 注释仍可清理。未修改学习者代码。
