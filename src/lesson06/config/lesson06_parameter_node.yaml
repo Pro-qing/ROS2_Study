@@ -1,0 +1,4 @@
+lesson06_parameter_node:
+  ros__parameters:
+    message_prefix: "configured count = "
+    period_ms: 50

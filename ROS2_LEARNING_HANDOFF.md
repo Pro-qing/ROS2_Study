@@ -43,9 +43,9 @@
 
 ## 当前练习
 
-- 文件：`src/lesson04/`
-- 主题：使用 String 订阅回调接收第三课发布者的数据
-- 当前状态：2026-10-18 第四课代码、构建、真实发布者联调与理解验收均通过，已完成。
+- 文件：`src/lesson05/`～`src/lesson10/`
+- 主题：Launch、参数、Service、Action、测试、Executor 与综合复习题目框架
+- 当前状态：2026-10-28 已创建六个课程目录、题目文档和 TODO 骨架；相关题目尚未由学习者完成或验收，不改变已完成课程结论。
 
 ## 当前观察
 
@@ -73,3 +73,5 @@
 - 2026-10-25：复查 `src/lesson04/cpp_practice/practice.cpp`。使用 `g++ -std=c++17 -Wall -Wextra -Wpedantic` 构建无告警，运行输出为 `received: count = 7`，因此示例输出通过。源码第 6 行仍是 TODO，`describe` 当前只返回原文本；按 `EXERCISE.md` 第 17 行对“describe 添加前缀”的字面要求尚未完成。文档同时要求 lambda 输出 `prefix + describe(text)`，若两处都添加前缀会重复，需先统一练习契约。未修改学习者代码。
 
 - 2026-10-25 再次复查：`describe` 已改为在第 7 行添加 `received: `，但 lambda 第 16 行仍拼接 `prefix`，构建无告警而运行输出为 `received: received: count = 7`，未通过示例验收。需要只保留一个位置负责添加前缀；同时第 6、15 行的 TODO 注释仍可清理。未修改学习者代码。
+
+- 2026-10-28：按预备题库创建 `src/lesson05`～`src/lesson10` 的题目框架。lesson05 包含两个 Python launch 骨架；lesson06 包含类型参数节点和 YAML 配置；lesson07 包含 SetBool service server/client；lesson08 包含 Fibonacci action server/client；lesson09 包含纯 C++ gtest 和 ROS 接口检查说明；lesson10 包含 SingleThreadedExecutor 回调演示。所有新题状态保持待回答，未将未来主题加入 catalog，也未将 TODO 骨架视为完成证据。
